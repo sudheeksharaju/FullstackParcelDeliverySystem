@@ -1,5 +1,5 @@
  const dotenv = require("dotenv");
-const jwt = requrie("jsonwebtoken");
+const jwt = require("jsonwebtoken");
 dotenv.config();
 
 const verifyToken = (req,res,next) => {
@@ -26,7 +26,7 @@ const verifyTokenAndAuthorization = (req,res,next) =>{
        }else{
           res.status(403).json("You are not permitted to do this operation")
        }
-    })
+    });
 }
 
 module.exports={verifyToken,verifyTokenAndAuthorization}
