@@ -18,7 +18,7 @@ const Parcel = require("../models/Parcel");
 
     try {
         const parcels = await Parcel.find().sort({createdAt:-1});
-        res.status(200).jsonn(parcels);
+        res.status(200).json(parcels);
     } catch (error) {
         res.status(500).json(error)
     }
