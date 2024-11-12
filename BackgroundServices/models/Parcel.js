@@ -16,8 +16,7 @@ const ParcelSchema =  mongoose.Schema({
    status:{type:Number,default:0},
 },{
      timestamp:true,
-}
-);
+})
 
 
 module.exports = mongoose.model("Parcel", ParcelSchema)
