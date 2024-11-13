@@ -3,6 +3,8 @@ const app = express();
 const dotenv = require("dotenv");
 const cron = require("node-cron");
 const mongoose = require("mongoose");
+const sendMail = require("./helpers/sendmail");
+const { sendWelcomeEmail } = require("./EmailService/WelcomeEmail.js");
 dotenv.config();
 
 
@@ -19,8 +21,10 @@ mongoose
 //TASK SCHEDULER
 
 const run = () =>{
-    cron.schedule('* * * * * *', () => {});
-}
+    cron.schedule('* * * * * *', () => {
+        sendWelcomeEmail();
+    });
+};
 
 run();
 
@@ -29,4 +33,4 @@ const PORT = process.env.PORT;
 app.listen(PORT,()=>{
     console.log(`Backgroundservices is running on port ${PORT}`);
     
-})
+});

@@ -17,3 +17,18 @@ let configurations = {
         pass: process.env.PASSWORD
     }
 };
+
+const  sendMail = async(messageoption) => {
+
+    const  transporter = await createTransporter(configurations);
+    await transporter.verify();
+    await transporter.sendMail(messageoption, (err, info) => {
+       if(err){
+        console.log(err)
+       }
+       console.log(info.response);
+    });
+};
+
+
+module.exports=sendMail;
