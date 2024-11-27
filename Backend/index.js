@@ -9,13 +9,11 @@ const parcelRoute = require("./routes/parcel")
 dotenv.config();
 const app = express();
 
-
 //MIDDLEWARES
 app.use(cors());
 app.use(express.json());
 
 //ROUTES
-
 app.use("/api/v1/auth", authRoute)
 app.use("/api/v1/users",userRoute)
 app.use("/api/v1/parcels",parcelRoute)
@@ -27,7 +25,6 @@ mongoose.connect(DB).then(()=>{
 }).catch((err)=>{
 console.log(err)
 })
-
 
 //SERVER
 const  PORT = process.env.PORT;

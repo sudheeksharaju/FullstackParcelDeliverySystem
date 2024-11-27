@@ -14,7 +14,20 @@ const Users = () => {
     { field: "age", headerName: "Age", width: 100 },
     { field: "country", headerName: "Country", width: 150 },
     { field: "role", headerName: "Role", width: 150 },
-
+     
+    {
+            field: "edit",
+            headerName: "Edit",
+            width: 150,
+            renderCell: (params) => {
+              return (
+                <FaTrash
+                  className="text-blue-500 cursor-pointer m-[10px]"
+                  onClick={() => handleEdit(params.row._id)}
+                />
+              );
+            },
+          },
     {
       field: "delete",
       headerName: "Delete",
@@ -43,11 +56,21 @@ const Users = () => {
     };
     getUsers();
   }, []);
+ 
+   const handleEdit = async (id) => {
+    try {
+      await publicRequest.delete(`/users/${id}`);
+        window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
 
   const handleDelete = async (id) => {
     try {
       await publicRequest.delete(`/users/${id}`);
-      window.location.reload();
+        window.location.reload();
     } catch (error) {
       console.log(error);
     }
@@ -64,6 +87,7 @@ const Users = () => {
           </button>
         </Link>
       </div>
+
       <DataGrid
         rows={users}
         columns={columns}

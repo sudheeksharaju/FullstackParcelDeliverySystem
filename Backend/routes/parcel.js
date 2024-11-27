@@ -4,7 +4,7 @@ const { verifyToken,verifyTokenAndAuthorization } = require("../middlewares/veri
 const router = express.Router();
 
 //ADD PARCEL
-router.post("/",verifyToken,createParcel)
+router.post("/",createParcel)
 
 //GET ALL PARCELS
 
