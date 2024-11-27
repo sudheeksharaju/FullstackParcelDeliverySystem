@@ -12,9 +12,14 @@ const NewParcel = () => {
     });
   };
 
+  const handleAddParcel = (e) => {
+    e.preventDefault();
+    console.log(inputs)
+  }
+
   const handleSubmit = async () => {
     try {
-      await publicRequest.post("/parcels", inputs);
+      const response = await publicRequest.post("/parcels", inputs);
 
       // Clear the input fields
       setInputs({});
@@ -83,12 +88,12 @@ const NewParcel = () => {
             <label htmlFor="">Sender Email</label>
             <input
               type="email"
-              required
               placeholder="jamesdoe@gmail.com"
               name="senderemail"
               value={inputs.senderemail || ""}
               onChange={handleChange}
               className="border-2 border-[#555] border-solid p-[10px] w-[300px]"
+              required
             />
           </div>
           <div className="flex flex-col my-[20px]">
@@ -150,6 +155,7 @@ const NewParcel = () => {
               className="border-2 border-[#555] border-solid p-[10px] w-[300px]"
             />
           </div>
+          
           <button
             className="bg-[#1E1E1E] cursor-pointer text-white p-[10px] w-[300px]"
             onClick={handleSubmit}
@@ -164,3 +170,4 @@ const NewParcel = () => {
 };
 
 export default NewParcel;
+

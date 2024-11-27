@@ -9,7 +9,6 @@ const Parcels = () => {
 
   const [parcels, setParcels] = useState([]);
 
-  
 
   const columns = [
     { field: "from", headerName: "From", width: 150 },
@@ -59,7 +58,7 @@ const Parcels = () => {
     getParcels();
   }, []);
 
-const handleDelete = async(id) =>{
+const handleDelete = async (id) =>{
   try {
       await publicRequest.delete(`/parcels/${id}`);
       window.location.reload();
@@ -78,6 +77,7 @@ const handleDelete = async(id) =>{
             New Parcel
           </button>
         </Link>
+        
       </div>
       <DataGrid 
       rows={parcels} 

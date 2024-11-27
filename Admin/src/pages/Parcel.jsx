@@ -162,7 +162,7 @@ const Parcel = () => {
               className="border-2 border-[#555] border-solid p-[10px] w-[300px]"
             />
           </div>
-
+        
           {parcel.status === 1 && (
             <button
               className="bg-[#1E1E1E] cursor-pointer text-white p-[10px] w-[300px]"
@@ -170,8 +170,10 @@ const Parcel = () => {
             >
               Update
             </button>
+
           )}
         </div>
+        
         <div className="flex flex-col">
           <h2 className="font-semibold">Feedback</h2>
           <span>Goods received in good condition.</span>

@@ -31,7 +31,7 @@ const Parcel = () => {
           <div className="flex-1">
             <ul className="m-3">
               <li className="mt-3">From: {parcel.from}</li>
-              <li className="mt-3">Weigh: {parcel.weight} kg</li>
+              <li className="mt-3">Weight: {parcel.weight}</li>
               <li className="mt-3">Date: {parcel?.date}</li>
               <li className="mt-3">Sender: {parcel.sendername}</li>
               <li className="mt-3">To : {parcel.to}</li>
