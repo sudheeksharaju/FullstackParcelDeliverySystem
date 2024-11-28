@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 import { publicRequest } from "../requestMethods";
 import { useEffect } from "react";
 import { useState } from "react";
+import axios from 'axios';
 
 const Parcel = () => {
   const location = useLocation();
@@ -18,7 +19,7 @@ const Parcel = () => {
   useEffect(() => {
     const getParcel = async () => {
       try {
-        const res = await publicRequest.get("/parcels/find/" + parcelId);
+        const res = await publicRequest.get("/parcels/find/" + {parcelId});
         setParcel(res.data);
       } catch (error) {
         console.log(error);
@@ -26,6 +27,18 @@ const Parcel = () => {
     };
     getParcel();
   }, [parcelId]);
+
+
+//   useEffect(() => {
+//     // Fetch parcel data here
+//     axios.get('/api/parcel')
+//         .then((response) => {
+//             setParcel(response.data);
+//         })
+//         .catch((error) => {
+//             console.error('Error fetching parcel:', error);
+//         });
+// }, []);
 
   const handleUpdate = async () => {
     try {
@@ -43,9 +56,19 @@ const Parcel = () => {
     }
   };
 
+//   const handleUpdate = async () => {
+//     try {
+//         const response = await axios.post('/api/update', { parcelId: 123 });
+//         console.log('Update successful:', response.data);
+//     } catch (error) {
+//         console.error('Error occurred:', error);
+//     }
+// };
+
+
   return (
     <div className="m-[30px] bg-[#fff] p-[20px]">
-      <h2 className="font-semibold">Edit Parcel</h2>
+      <h2 className="font-semibold">New Parcel</h2>
 
       <div className="flex">
         <div className="m-[20px]">
@@ -162,22 +185,30 @@ const Parcel = () => {
               className="border-2 border-[#555] border-solid p-[10px] w-[300px]"
             />
           </div>
-        
-          {parcel.status === 1 && (
+
+          {/* {parcel.status === 1 && (
             <button
-              className="bg-[#1E1E1E] cursor-pointer text-white p-[10px] w-[300px]"
+              className="bg-[#1E1E1E] cursor-pointer text-black p-[10px] w-[300px]"
               onClick={handleUpdate}
             >
               Update
             </button>
+          )} */}
+      
+      <button
+    className="bg-[#1E1E1E] text-white hover:bg-gray-700 cursor-pointer p-[10px] w-[300px]"
+    onClick={handleUpdate}
+>
+    Update
+</button>
 
-          )}
+
+
         </div>
-        
         <div className="flex flex-col">
           <h2 className="font-semibold">Feedback</h2>
           <span>Goods received in good condition.</span>
-          <span className="text-red-500 text-[18px]">
+          <span className="text-blue-500 text-[18px]">
             {parcel.status === 1 ? "Pending" : "Delivered"}
           </span>
         </div>

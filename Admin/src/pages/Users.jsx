@@ -16,19 +16,6 @@ const Users = () => {
     { field: "role", headerName: "Role", width: 150 },
      
     {
-            field: "edit",
-            headerName: "Edit",
-            width: 150,
-            renderCell: (params) => {
-              return (
-                <FaTrash
-                  className="text-blue-500 cursor-pointer m-[10px]"
-                  onClick={() => handleEdit(params.row._id)}
-                />
-              );
-            },
-          },
-    {
       field: "delete",
       headerName: "Delete",
       width: 150,
@@ -56,16 +43,6 @@ const Users = () => {
     };
     getUsers();
   }, []);
- 
-   const handleEdit = async (id) => {
-    try {
-      await publicRequest.delete(`/users/${id}`);
-        window.location.reload();
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
 
   const handleDelete = async (id) => {
     try {

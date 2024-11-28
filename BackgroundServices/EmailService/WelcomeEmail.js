@@ -18,12 +18,12 @@ const sendWelcomeEmail = async() => {
            ejs.renderFile(
             "templates/welcome.ejs",
             {fullname: user.fullname, password:originalPassword, email:user.email},
-            async(err, info) => {
+            async(err, data) => {
                let messageOption = {
                    from: process.env.EMAIL,
                    to: user.email,
                    subject: "Welcome to SendIT",
-                   html: info,
+                   html: data,
                };
 
                try {
