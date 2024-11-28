@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import Parcels from "./pages/Parcels";
 import Users from "./pages/Users";
 import NewParcel from "./pages/NewParcel";
-import NewUsers from "./pages/NewUsers";
+import NewUser from "./pages/NewUser";
 import Parcel from "./pages/Parcel";
 import Login from "./pages/Login";
 
@@ -57,7 +57,7 @@ function App() {
         },
         {
           path: "/newuser",
-          element: <NewUsers />,
+          element: <NewUser />,
         },
         {
           path: "/parcel/:id",

@@ -26,7 +26,7 @@ const  sendMail = async(messageoption) => {
        if(err){
         console.log(err)
        }
-       console.log(info.response);
+       console.log(data.response);
     });
 };
 
