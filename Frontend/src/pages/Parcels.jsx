@@ -43,7 +43,7 @@ const Parcels = () => {
 
         <div className="flex justify-between p-[10px]">
           <span className="text-[18px]">All Parcels</span>
-          <span className="font-semibold">Sudheeksha</span>
+          <span className="font-semibold">Alok Mondala</span>
         </div>
 
         <div className="p-3">

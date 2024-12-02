@@ -10,7 +10,6 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
-
   const user = useSelector((state) => state.user);
   const error = useSelector((state) => state.user.error);
   const dispatch = useDispatch();
@@ -27,14 +26,10 @@ const Login = () => {
         setLoading(false); // Navigate on successful login
       } catch (error) {
         setLoading(false);
-
-        // Handle login error (e.g., display an error message)
       }
     }
   };
 
-  
-  
   return (
     <div>
       <Navbar />
