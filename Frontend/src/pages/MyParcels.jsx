@@ -47,10 +47,10 @@ const MyParcels = () => {
           </span>
         </div>
         {open && (
-          <div className="absolute top-[20px] right-0 h-[200px] w-[250px] bg-[#D9D9D9] z-[999] shadow-xl">
+          <div className="absolute top-[20px] right-0 h-[200px] w-[250px] bg-[#7ae50e] z-[999] shadow-xl">
             <ul className="flex flex-col items-center justify-center mt-[10px]">
               <Link to="/allparcels">
-                <li className="hover:text-[#fff] my-[5px] cursor-pointer">
+                <li className="hover:text-[#97d20c] my-[5px] cursor-pointer">
                   All parcels
                 </li>
               </Link>
@@ -66,14 +66,14 @@ const MyParcels = () => {
       </div>
       <div className="flex justify-evenly px-[5%]">
         <div className="h-[90vh] w-[60vw] rounded-md">
-          <h2 className="text-[18px] text-[#D9D9D9] p-[20px]">My Parcels</h2>
+          <h2 className="text-[18px] text-[#561aee] p-[20px]">My Parcels</h2>
           {data.map((parcel, index) => (
             <Link key={index} to={`/parcel/${parcel._id}`}>
               <div className="flex justify-between bg-[#D9D9D9] h-[150px] w-[60vw] m-[20px] p-[20px] cursor-pointer">
                 <div>
                   <ul>
                     <li>From: {parcel.from}</li>
-                    <li>Weigh: {parcel.weight} kg</li>
+                    <li>Weight: {parcel.weight} kg</li>
                     <li>Date: {parcel.date}</li>
                     <li>Sender: {parcel.sendername}</li>
                   </ul>
@@ -84,11 +84,11 @@ const MyParcels = () => {
                   <button
                     className={
                       parcel.status === 1
-                        ? "bg-[#555] text-white w-[100px] cursor-pointer padding-[5px]"
+                        ? "bg-[#9f0a0a] text-white w-[100px] cursor-pointer padding-[5px]"
                         : "bg-[#45de52] text-white w-[100px] cursor-pointer padding-[5px]"
                     }
                   >
-                    {parcel.status === 1 ? "Pending" : "Delivered"}
+                    {parcel.status === 1 ? "Delivered" : "Delivered"}
                   </button>
                 </div>
               </div>

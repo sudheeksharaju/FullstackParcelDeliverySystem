@@ -19,7 +19,7 @@ const Parcel = () => {
   useEffect(() => {
     const getParcel = async () => {
       try {
-        const res = await publicRequest.get("/parcels/find/" + {parcelId});
+        const res = await publicRequest.get("/parcels/find/" + parcelId);
         setParcel(res.data);
       } catch (error) {
         console.log(error);
@@ -27,18 +27,6 @@ const Parcel = () => {
     };
     getParcel();
   }, [parcelId]);
-
-
-//   useEffect(() => {
-//     // Fetch parcel data here
-//     axios.get('/api/parcel')
-//         .then((response) => {
-//             setParcel(response.data);
-//         })
-//         .catch((error) => {
-//             console.error('Error fetching parcel:', error);
-//         });
-// }, []);
 
   const handleUpdate = async () => {
     try {
@@ -56,14 +44,7 @@ const Parcel = () => {
     }
   };
 
-//   const handleUpdate = async () => {
-//     try {
-//         const response = await axios.post('/api/update', { parcelId: 123 });
-//         console.log('Update successful:', response.data);
-//     } catch (error) {
-//         console.error('Error occurred:', error);
-//     }
-// };
+
 
 
   return (
@@ -185,16 +166,7 @@ const Parcel = () => {
               className="border-2 border-[#555] border-solid p-[10px] w-[300px]"
             />
           </div>
-
-          {/* {parcel.status === 1 && (
-            <button
-              className="bg-[#1E1E1E] cursor-pointer text-black p-[10px] w-[300px]"
-              onClick={handleUpdate}
-            >
-              Update
-            </button>
-          )} */}
-      
+          
       <button
     className="bg-[#1E1E1E] text-white hover:bg-gray-700 cursor-pointer p-[10px] w-[300px]"
     onClick={handleUpdate}
